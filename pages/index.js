@@ -1,26 +1,28 @@
-import Head from 'next/head';
 import Header from '../components/Header';
 import ProfileCard from '../components/ProfileCard';
 import SkillsList from '../components/SkillsList';
 import Footer from '../components/Footer';
 
-export default function Home() {
-  const name = 'Rain Secjadas';  
+const profile = {
+  name: 'Luke Carlyle Bayron',
+  age: 20,
+  description: 'Passionate full-stack developer with a love for creating beautiful and functional web applications',
+  imageUrl: 'https://picsum.photos/200/200',
+  skills: ['JavaScript', 'React', 'Next.js'],
+};
 
+export default function Home() {
   return (
-    <main style={{ maxWidth: '720px', margin: '2rem auto', padding: '0 1rem', background: '#000', color: '#fff' }}>  {/* Dark background to match screenshot */}
-      <Head>
-        <title>My Profile</title>
-      </Head>
-      <Header name={name} />
+    <main style={{ maxWidth: 900, margin: '2rem auto', padding: '0 1rem', textAlign: 'center' }}>
+      <Header name={profile.name} />
       <ProfileCard
-        name={name}
-        age={19}
-        description="I am Rain Secjadas. I am 19 years old. I’m a web developer who loves building clean UIs and learning new tools"
-        imageUrl="https://picsum.photos/200"  // Placeholder; replace with a real image URL for the white circle in screenshot
+        name={profile.name}
+        age={profile.age}
+        description={profile.description}
+        imageUrl={profile.imageUrl}
       />
-      <SkillsList skills={['React', 'NextJs']} />
-      <Footer name={name} />
+      <SkillsList skills={profile.skills} />
+      <Footer name={profile.name} />
     </main>
   );
 }
